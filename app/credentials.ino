@@ -1,4 +1,5 @@
 #include <EEPROM.h>
+#define PHY_MODE WIFI_PHY_MODE_11G
 
 // Read parameters from EEPROM or Serial
 void readCredentials()
@@ -25,11 +26,12 @@ void readCredentials()
         return;
     }
 
-    ssid = "belkin.36ef";
+    ssid = "<--- Insert here your WIFI SSID --->";
     EEPROMWrite(ssidAddr, ssid, strlen(ssid));
-    pass = "34e966fb";
+    pass = "<--- Insert here your WIFI Password --->";
     EEPROMWrite(passAddr, pass, strlen(pass));
-    connectionString = "HostName=TFHub.azure-devices.net;DeviceId=TFNode;SharedAccessKey=aOfwZ2dkf1wL05e/bZqagSZINRF48FhNg29WNdlkkxM=";
+    connectionString = "<---Insert here your device Primary Key from your Azure IoT Hub --->";  
+                          
     EEPROMWrite(connectionStringAddr, connectionString, strlen(connectionString));
 }
 
